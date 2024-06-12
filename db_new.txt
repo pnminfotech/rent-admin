@@ -1,0 +1,73 @@
+ALTER TABLE `flat_details` ADD `phone` VARCHAR(30) NULL AFTER `owner_name`;
+
+
+CREATE TABLE `flat_rental` (
+  `id` int(11) NOT NULL primary key AUTO_INCREMENT,
+  `flat_no` varchar(10) DEFAULT NULL,
+  `building_name` varchar(50) DEFAULT NULL,
+  `wing` varchar(20) DEFAULT NULL,
+  `area` varchar(50) DEFAULT NULL,
+  `room` varchar(30) DEFAULT NULL,
+  `area_sq_ft` varchar(30) DEFAULT NULL,
+  `user_name` varchar(50) DEFAULT NULL,
+  `phone` varchar(30) DEFAULT NULL,
+  `phone2` varchar(30) DEFAULT NULL,
+  `email` varchar(30) DEFAULT NULL,
+  `working_place` varchar(30) DEFAULT NULL,
+  `rent` varchar(30) DEFAULT NULL,
+  `Deposite` varchar(30) DEFAULT NULL,
+  `Family_members` varchar(20) DEFAULT NULL,
+  `family_members_name` varchar(150) DEFAULT NULL,
+  `current_meter_reading` varchar(20) DEFAULT NULL,
+  `flat_given_on` varchar(20) DEFAULT NULL,
+  `address` varchar(100) DEFAULT NULL,
+  `rent_due_date` varchar(20) DEFAULT NULL,
+  `from_date` varchar(30) DEFAULT NULL,
+  `adhar_card` longblob DEFAULT NULL,
+  `pancard` longblob DEFAULT NULL,
+  `lightbill` longblob DEFAULT NULL,
+  `status` varchar(20) DEFAULT NULL,
+  `photo` longblob DEFAULT NULL,
+  `maintainence` varchar(50) DEFAULT NULL,
+  `amt_per_unit` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `flat_rental` ADD `final_rent` VARCHAR(50) NULL AFTER `rent`;
+
+****************************************************
+
+CREATE TABLE `rent`.`rent_update_details` ( `id` INT(20) NOT NULL AUTO_INCREMENT , `flat_no` VARCHAR(50) NULL DEFAULT NULL , `building_name` VARCHAR(100) NULL DEFAULT NULL , `wing` VARCHAR(50) NULL DEFAULT NULL , `room_type` VARCHAR(50) NULL DEFAULT NULL , `user_name` VARCHAR(100) NULL DEFAULT NULL , `phone` VARCHAR(50) NULL DEFAULT NULL , `rent_from` VARCHAR(50) NULL DEFAULT NULL , `total_rent` VARCHAR(50) NULL , `last_meter_reading` VARCHAR(50) NULL , `per_unit_reading` VARCHAR(50) NULL , `final_rent_amt` VARCHAR(50) NULL , `paid_amt` VARCHAR(50) NULL , `remain_amt` VARCHAR(50) NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+ALTER TABLE `rent_update_details` ADD `sn` VARCHAR(20) NULL AFTER `id`;
+
+ALTER TABLE `rent_update_details` ADD `month` VARCHAR(50) NULL AFTER `remain_amt`;
+
+ALTER TABLE `rent_update_details` ADD `b_id` VARCHAR(20) NOT NULL AFTER `month`;
+
+ALTER TABLE `rent_update_details` ADD `rent_due_date` VARCHAR(50) NULL AFTER `rent_from`, ADD `rent_paid_date` VARCHAR(50) NULL AFTER `rent_due_date`;
+
+CREATE TABLE `flat_rent` (
+  `id` int(20) NOT NULL primary key auto_increment,
+  `sn` varchar(20) DEFAULT NULL,
+  `flat_no` varchar(50) DEFAULT NULL,
+  `building_name` varchar(100) DEFAULT NULL,
+  `wing` varchar(50) DEFAULT NULL,
+  `room_type` varchar(50) DEFAULT NULL,
+  `user_name` varchar(100) DEFAULT NULL,
+  `phone` varchar(50) DEFAULT NULL,
+  `rent_from` varchar(50) DEFAULT NULL,
+  `rent_due_date` varchar(50) DEFAULT NULL,
+  `rent_paid_date` varchar(50) DEFAULT NULL,
+  `total_rent` varchar(50) DEFAULT NULL,
+  `last_meter_reading` varchar(50) DEFAULT NULL,
+  `lightbill_amt` varchar(50) DEFAULT NULL,
+  `final_rent_amt` varchar(50) DEFAULT NULL,
+  `paid_amt` varchar(50) DEFAULT NULL,
+  `remain_amt` varchar(50) DEFAULT NULL,
+  `month` varchar(50) DEFAULT NULL,
+  `b_id` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+ALTER TABLE `flat_rent` ADD `current_meter_reading` VARCHAR(50) NULL AFTER `last_meter_reading`, ADD `total_meter_reading` VARCHAR(50) NULL AFTER `current_meter_reading`;
+
+ALTER TABLE `flat_rent` ADD `rent` VARCHAR(50) NULL AFTER `phone`;

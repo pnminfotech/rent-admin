@@ -1,0 +1,16 @@
+mysql> create table master_login(id int primary key auto_increment not null,username varchar(100),password varchar(100),email varchar(100));
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> insert into master_login values(1,'chetan','3697','pratikshabirdawade1996@gmail.com');
+Query OK, 1 row affected (0.00 sec)
+
+******************************************************
+mysql> create table users(id int primary key auto_increment not null,name varchar(100));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> insert into users values(1,'jeevan');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into users values(2,'chetan');
+Query OK, 1 row affected (0.00 sec)
+
